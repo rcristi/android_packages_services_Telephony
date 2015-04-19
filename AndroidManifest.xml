@@ -99,8 +99,10 @@
     <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL" />
     <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
     <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES" />
-    <uses-permission
-            android:name="com.android.server.telecom.permission.REGISTER_PROVIDER_OR_SUBSCRIPTION" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.REGISTER_CALL_PROVIDER" />
+    <uses-permission android:name="android.permission.REGISTER_SIM_SUBSCRIPTION" />
+    <uses-permission android:name="android.permission.BIND_CARRIER_MESSAGING_SERVICE" />
     <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <!-- This tells the activity manager to not delay any of our activity
@@ -501,14 +503,6 @@
                 <action android:name="codeaurora.intent.action.ACTION_LTE_CONFIGURE" />
             </intent-filter>
         </activity>
-
-        <!-- Broadcast receiver to set default handlers for various actions
-             depending if MSim is available -->
-        <receiver android:name="ComponentEnableReceiver" android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
         <!-- Broadcast Receiver that will process BOOT Complete and launch OTA -->
         <receiver android:name="OtaStartupReceiver" android:exported="false"
