@@ -257,6 +257,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallFallback;
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
+    private Preference mVideoCallPreference;
 
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
@@ -1651,16 +1652,16 @@ public class CallFeaturesSetting extends PreferenceActivity
                 pref.setTitle(getString(R.string.sim_card_title, i + 1));
                 if (sir != null) {
                     pref.setSummary(sir.getDisplayName());
+
+                    Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
+                    SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
+                    pref.setIntent(intent);
+
+                    simCategory.addPreference(pref);
                 } else {
                     pref.setSummary(R.string.sim_card_summary_empty);
                     pref.setEnabled(false);
                 }
-
-                Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
-                SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
-                pref.setIntent(intent);
-
-                simCategory.addPreference(pref);
             }
         } else {
             addPreferencesFromResource(R.xml.call_feature_setting);
@@ -1684,6 +1685,11 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
             mButtonVideoCallPictureSelect = (PreferenceScreen)
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
+        } else {
+            mVideoCallPreference = findPreference(BUTTON_VIDEO_CALL_SWITCH);
+            if (mVideoCallPreference != null) {
+                prefSet.removePreference(mVideoCallPreference);
+            }
         }
 
         mMwiNotification = (SwitchPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);

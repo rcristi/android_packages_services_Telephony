@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Tapahtumailmoitus</string>
   <string name="show_ssn_summary">Näytä eri verkkotapahtumien ilmoitus liittyen puheluiden käsittelyyn</string>
-  <string name="blacklist_title">Musta lista</string>
   <string name="blacklist_summary_disabled">Pois käytöstä</string>
-  <string name="blacklist_summary">Tulevat puhelut mustalla listalla olevista puhelinnumeroista estetään</string>
   <string name="mwi_notification_title">Viesti odottaa-merkki</string>
   <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa</string>
   <string name="call_notif_unconditionalCF">Ehdoton soitonsiirto aktiivinen</string>
@@ -92,6 +90,11 @@
   <string name="vt_forward_setting">Videopuhelun siirto</string>
   <string name="vt_imagereplace_setting">Vaihtoehtoinen kuva</string>
   <string name="vt_imagereplace_setting_sum">Näytettävä kuva, kun etukamera on poistettu käytöstä</string>
+  <string name="roaming_mode_title">Roaming-tila</string>
+  <string name="roaming_mode_summary">Kansainvälinen roaming-tila</string>
+  <string name="roaming_gsm">GSM-roaming</string>
+  <string name="roaming_cdma">CDMA-roaming</string>
+  <string name="roaming_disabled">Pois käytöstä</string>
   <string name="preferred_network_mode_global_summary_cm">Ensisijainen verkkotila: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Ensisijainen verkkotila: Vain TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/WCDMA</string>
